@@ -31,6 +31,15 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-file-lines"></i> Daftar Santri
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url('santri') ?>">Santri Baru</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url('berkas/lanjut') ?>">Santri Lanjutan</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-file-lines"></i> Berkas Pendaftaran
                             </a>
                             <ul class="dropdown-menu">
