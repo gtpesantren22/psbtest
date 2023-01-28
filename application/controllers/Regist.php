@@ -12,7 +12,7 @@ class Regist extends CI_Controller
 
 		$user = $this->Auth_model->current_user();
 
-		if (!$this->Auth_model->current_user() || $user->level != 'bunda' && $user->level != 'admin') {
+		if (!$this->Auth_model->current_user()) {
 			redirect('login/logout');
 		}
 	}

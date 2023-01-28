@@ -10,7 +10,7 @@ class Berkas extends CI_Controller
 		$this->load->model('Auth_model');
 
 		$user = $this->Auth_model->current_user();
-		if (!$this->Auth_model->current_user() || $user->level != 'adm' && $user->level != 'admin') {
+		if (!$this->Auth_model->current_user() ) {
 			redirect('login/logout');
 		}
 	}

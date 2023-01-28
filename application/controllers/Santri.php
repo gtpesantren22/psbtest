@@ -16,7 +16,7 @@ class Santri extends CI_Controller
 
 
 		$user = $this->Auth_model->current_user();
-		if (!$this->Auth_model->current_user() || $user->level != 'admin' && $user->level != 'bunda') {
+		if (!$this->Auth_model->current_user()) {
 			redirect('login/logout');
 		}
 	}
