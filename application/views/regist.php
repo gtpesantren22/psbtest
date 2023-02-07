@@ -4,24 +4,25 @@
         <button class="btn btn-primary btn-sm mb-3" data-bs-toggle="modal" data-bs-target="#modal-large">
             Tambah Pembayaran Baru
         </button>
-        <table id="example" class="table table-striped table-sm">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Lembaga</th>
-                    <th>Tanggungan</th>
-                    <th>Lunas</th>
-                    <th>Sisa</th>
-                    <th>#</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $no = 1;
-                foreach ($baru as $row) :
-                    $byr = $this->db->query("SELECT SUM(nominal) AS jml FROM regist WHERE nis = $row->nis")->row();
-                ?>
+        <div class="table-responsive">
+            <table id="example" class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Lembaga</th>
+                        <th>Tanggungan</th>
+                        <th>Lunas</th>
+                        <th>Sisa</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($baru as $row) :
+                        $byr = $this->db->query("SELECT SUM(nominal) AS jml FROM regist WHERE nis = $row->nis")->row();
+                    ?>
                     <tr>
                         <td><?= $no++; ?></td>
                         <td><?= $row->nama; ?></td>
@@ -36,9 +37,10 @@
                                 <i class="fa-solid fa-file-pen"></i> Edit</a>
                         </td>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -68,20 +70,24 @@
                             $no = 1;
                             foreach ($nobp as $row) :
                             ?>
-                                <tr>
-                                    <td><?= $no++; ?></td>
-                                    <td><?= $row->nama; ?></td>
-                                    <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td>
-                                    <td><?= $row->lembaga; ?></td>
-                                    <td>
-                                        <a href="<?= base_url('regist/addDaftar/') . $row->nis ?>" class="btn btn-success btn-sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <circle cx="12" cy="12" r="9"></circle>
-                                                <path d="M9 12l2 2l4 -4"></path>
-                                            </svg> Pilih</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $row->nama; ?></td>
+                                <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td>
+                                <td><?= $row->lembaga; ?></td>
+                                <td>
+                                    <a href="<?= base_url('regist/addDaftar/') . $row->nis ?>"
+                                        class="btn btn-success btn-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-circle-check" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <path d="M9 12l2 2l4 -4"></path>
+                                        </svg> Pilih</a>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
