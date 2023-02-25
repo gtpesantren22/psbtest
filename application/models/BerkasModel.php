@@ -14,6 +14,25 @@ class BerkasModel extends CI_Model
 		return $result;
 	}
 
+	public function lama()
+	{
+		$this->db->from('berkas_file');
+		$this->db->join('tb_santri', 'ON berkas_file.nis=tb_santri.nis');
+		$this->db->where('tb_santri.ket', 'lama');
+		$this->db->order_by('nama', 'ASC');
+		$result = $this->db->get()->result(); // Tampilkan semua data kota berdasarkan id provinsi
+
+		return $result;
+	}
+	public function lamaData()
+	{
+		$this->db->from('tb_santri');
+		$this->db->where('ket', 'lama');
+		$result = $this->db->get()->result(); // Tampilkan semua data kota berdasarkan id provinsi
+
+		return $result;
+	}
+
 	public function atr()
 	{
 		$this->db->from('atribut');

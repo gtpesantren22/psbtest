@@ -10,7 +10,7 @@ class Berkas extends CI_Controller
 		$this->load->model('Auth_model');
 
 		$user = $this->Auth_model->current_user();
-		if (!$this->Auth_model->current_user() ) {
+		if (!$this->Auth_model->current_user()) {
 			redirect('login/logout');
 		}
 	}
@@ -20,9 +20,23 @@ class Berkas extends CI_Controller
 		$data['judul'] = 'berkas';
 		$data['user'] = $this->Auth_model->current_user();
 		$data['baru'] = $this->model->baru();
+		// $data['lama'] = $this->model->lama();
 
 		$this->load->view('head', $data);
 		$this->load->view('berkas', $data);
+		$this->load->view('foot');
+	}
+
+	public function lama()
+	{
+		$data['judul'] = 'berkas';
+		$data['user'] = $this->Auth_model->current_user();
+		// $data['baru'] = $this->model->baru();
+		$data['lama'] = $this->model->lama();
+		$data['lamaData'] = $this->model->lamaData();
+
+		$this->load->view('head', $data);
+		$this->load->view('berkasLama', $data);
 		$this->load->view('foot');
 	}
 
@@ -408,5 +422,17 @@ class Berkas extends CI_Controller
 		$file = $this->model->getFile($nis)->row();
 		force_download('../psb/assets/berkas/' . $file->ijazah, NULL);
 		redirect('berkas/detail/' . $nis);
+	}
+
+	public function addLamaBerkas($nis)
+	{
+		$this->model->input('berkas_file', $nis);
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('ok', 'Data berhasil ditambahkan');
+			redirect('berkas/lama');
+		} else {
+			$this->session->set_flashdata('error', 'Tambah tak berhasil');
+			redirect('berkas/lama');
+		}
 	}
 }

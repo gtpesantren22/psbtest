@@ -44,6 +44,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= base_url('berkas') ?>">Berkas Persyaratan</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url('berkas/lama') ?>">Berkas Persyaratan - Lanjutan</a></li>
                                 <li><a class="dropdown-item" href="<?= base_url('berkas/atr') ?>">Penerimaan Atribut</a></li>
                             </ul>
                         </li>

@@ -27,31 +27,28 @@
                         $kip = $row->kip != '' ? 14.3 : 0;
                         $ttl = round(($akta + $kk + $ktp_ayah + $ktp_ibu + $skl + $ijazah + $kip), 0);
                     ?>
-                    <tr>
-                        <td><?= $no++; ?></td>
-                        <td><?= $row->nis; ?></td>
-                        <td><?= $row->nama; ?></td>
-                        <!-- <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td> -->
-                        <td><?= $row->lembaga; ?></td>
-                        <td>
-                            <div class="col-auto">
-                                <small><?= $ttl ?>%</small>
-                            </div>
-                            <div class="col">
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar" style="width: <?= $ttl ?>%" role="progressbar"
-                                        aria-valuenow="<?= $ttl ?>" aria-valuemin="0" aria-valuemax="100"
-                                        aria-label="<?= $ttl ?>% Complete">
-                                        <span class="visually-hidden"><?= $ttl ?>% Complete</span>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $row->nis; ?></td>
+                            <td><?= $row->nama; ?></td>
+                            <!-- <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td> -->
+                            <td><?= $row->lembaga; ?></td>
+                            <td>
+                                <div class="col-auto">
+                                    <small><?= $ttl ?>%</small>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar" style="width: <?= $ttl ?>%" role="progressbar" aria-valuenow="<?= $ttl ?>" aria-valuemin="0" aria-valuemax="100" aria-label="<?= $ttl ?>% Complete">
+                                            <span class="visually-hidden"><?= $ttl ?>% Complete</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="<?= base_url('berkas/detail/' . $row->nis); ?>" class="btn btn-sm btn-info"><i
-                                    class="fa fa-file"></i> Cek Berkas</a>
-                        </td>
-                    </tr>
+                            </td>
+                            <td>
+                                <a href="<?= base_url('berkas/detail/' . $row->nis); ?>" class="btn btn-sm btn-info"><i class="fa fa-file"></i> Cek Berkas</a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
