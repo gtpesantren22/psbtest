@@ -35,7 +35,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= base_url('santri') ?>">Santri Baru</a></li>
-                                <li><a class="dropdown-item" href="<?= base_url('berkas/lanjut') ?>">Santri Lanjutan</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url('santri/lanjut') ?>">Santri Lanjutan</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
