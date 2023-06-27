@@ -49,8 +49,12 @@ class Regist extends CI_Controller
 		$data['judul'] = 'regist';
 		$data['santri'] = $this->model->santriNis($nis)->row();
 		$data['tgn'] = $this->model->tgnNis($nis)->row();
-		$data['byr'] = $this->model->byr($nis);
-		$data['byrSum'] = $this->model->byrSum($nis);
+
+		$data['bayarSm'] = $this->model->getBy('regist_sm', 'nis', $nis);
+		$data['bayar'] = $this->model->getBy('regist', 'nis', $nis);
+
+		$data['totalBayarSm'] = $this->model->getBySum('regist_sm', 'nis', $nis, 'nominal');
+		$data['totalBayar'] = $this->model->getBySum('regist', 'nis', $nis, 'nominal');
 
 		$data['tangg'] = $this->model->tgnNis($nis)->row();
 
@@ -109,9 +113,12 @@ class Regist extends CI_Controller
 	{
 		$nis  = $this->input->post('nis', true);
 		$nominal = rmRp($this->input->post('nominal', true));
-		$dataTgn = $this->model->tgnNis($nis)->row();
-		$tangg = $dataTgn->infaq + $dataTgn->buku + $dataTgn->kartu + $dataTgn->kalender + $dataTgn->seragam_pes + $dataTgn->seragam_lem + $dataTgn->orsaba;
-		$byr = $this->model->byrSum($nis)->row('nominal') + $nominal;
+
+		$tangg = rmRp($this->input->post('tangg', true));
+
+		$byrSudah = $this->model->getBySum('regist', 'nis', $nis, 'nominal')->row();
+		$byr = $this->model->byrSum($nis)->row('nominal') + $nominal + $byrSudah->nominal;
+
 		$id = $this->uuid->v4();
 		$user = $this->Auth_model->current_user();
 
@@ -132,8 +139,6 @@ class Regist extends CI_Controller
 
 			$this->model->tambah('regist_sm', $data);
 			if ($this->db->affected_rows() > 0) {
-				// $this->check($nis);
-				$this->pesan($id);
 				$this->session->set_flashdata('ok', 'Pembayaran Berhasil Ditambahkan');
 				redirect('regist/inDaftar/' . $nis);
 			} else {

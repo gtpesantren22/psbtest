@@ -54,7 +54,7 @@
                                         <br>
                                         <label class="form-label required">Tanggal Bayar</label>
                                         <div>
-                                            <input type="date" name="tgl_bayar" class="form-control" id="datepicker" placeholder="Tanggal Bayar"  required>
+                                            <input type="date" name="tgl_bayar" class="form-control" id="datepicker" placeholder="Tanggal Bayar" required>
                                         </div>
                                         <br>
                                         <label class="form-label required">Via</label>

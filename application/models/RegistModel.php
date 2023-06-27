@@ -109,4 +109,19 @@ class RegistModel extends CI_Model
         $this->db->where('ket', $ket);
         return $this->db->get();
     }
+
+    function getby($tbl, $where, $dtwhere)
+    {
+        $this->db->from($tbl);
+        $this->db->where($where, $dtwhere);
+        return $this->db->get();
+    }
+
+    function getBySum($tbl, $where, $dtwhere, $sum)
+    {
+        $this->db->select_sum($sum);
+        $this->db->from($tbl);
+        $this->db->where($where, $dtwhere);
+        return $this->db->get();
+    }
 }

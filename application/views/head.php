@@ -57,6 +57,9 @@
                                 <li><a class="dropdown-item" href="<?= base_url('regist') ?>">Registrasi Ulang</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="<?= base_url('santri/lemari') ?>"><i class="fa-solid fa-clipboard-user"></i></i> Lemari</a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->

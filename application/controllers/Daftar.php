@@ -112,9 +112,7 @@ Panitia
 		} else {
 			$this->model->edit('bp_daftar_sm', $data, $nis);
 			$this->model->edit('tb_santri', $data2, $nis);
-			kirim_person($key->api_key, $sn->hp, $pesan);
 			if ($this->db->affected_rows() > 0) {
-				$this->kirim($id_bayar);
 				redirect($rdrc);
 			}
 		}

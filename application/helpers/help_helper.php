@@ -64,6 +64,12 @@ function tanggalIndo($tanggal)
     $tanggal = $a['2'] . " " . bulan($a['1']) . " " . $a['0'];
     return $tanggal;
 }
+function tanggalIndo2($tanggal)
+{
+    $a = explode('-', $tanggal);
+    $tanggal = $a['0'] . " " . bulan($a['1']) . " " . $a['2'];
+    return $tanggal;
+}
 
 function kirim_person($key, $no_hp, $pesan)
 {

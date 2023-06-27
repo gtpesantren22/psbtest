@@ -7,6 +7,7 @@ class Santri extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('SantriModel', 'model');
+		$this->load->model('RegistModel', 'modelTgn');
 		$this->load->model('Auth_model');
 		$this->load->model('ProvinsiModel');
 		$this->load->model('KotaModel');
@@ -327,5 +328,167 @@ class Santri extends CI_Controller
 			$this->session->set_flashdata('error', 'Edit Error');
 			redirect('santri/edit/' . $where);
 		}
+	}
+
+	public function detail($nis)
+	{
+		$data['judul'] = 'santri';
+		$data['user'] = $this->Auth_model->current_user();
+		$data['santri'] = $this->model->santriNis($nis)->row();
+		$data['foto'] = $this->model->getBy('foto_file', 'nis', $nis)->row();
+		$data['berkas'] = $this->model->getBy('berkas_file', 'nis', $nis)->row();
+		$data['kamar'] = $this->model->getBy('lemari_data', 'nis', $nis)->row();
+
+		$data['tgn'] = $this->modelTgn->tgnNis($nis)->row();
+
+		$data['bayarSm'] = $this->model->getBy('regist_sm', 'nis', $nis);
+		$data['bayar'] = $this->model->getBy('regist', 'nis', $nis);
+
+		$data['totalBayarSm'] = $this->model->getBySum('regist_sm', 'nis', $nis, 'nominal');
+		$data['totalBayar'] = $this->model->getBySum('regist', 'nis', $nis, 'nominal');
+
+		$data['tangg'] = $this->modelTgn->tgnNis($nis)->row();
+
+		$data['dekos'] = $this->model->getBy('dekos', 'nis', $nis)->row();
+		$data['tmpKos'] = array("", "Kantin", "Gus Zaini", "Ny. Farihah", "Ny. Zahro", "Ny. Sa'adah", "Ny. Mamjudah", "Ny. Naily Z.", "Ny. Lathifah");
+
+		$data['daftar'] = $this->model->getBy('bp_daftar', 'nis', $nis)->row();
+		$data['daftarSm'] = $this->model->getBy('bp_daftar_sm', 'nis', $nis)->row();
+
+		$this->load->view('head', $data);
+		$this->load->view('lengkap', $data);
+		$this->load->view('foot');
+	}
+
+	public function kamar($nis)
+	{
+		$data['judul'] = 'santri';
+		$data['user'] = $this->Auth_model->current_user();
+		$data['santri'] = $this->model->santriNis($nis)->row();
+
+		// $data['kamar'] = $this->model->getBy('lemari_data', 'nis', $nis)->row();
+		$data['komplek'] = $this->model->getByGroup('lemari_data', 'jkl', $data['santri']->jkl, 'komplek')->result();
+
+		$this->load->view('head', $data);
+		$this->load->view('kamar', $data);
+		$this->load->view('foot');
+	}
+
+	public function selectKamar($nis, $idl)
+	{
+
+		$data = ['nis' => $nis];
+		$cek = $this->model->getBy('lemari_data', 'nis', $nis)->num_rows();
+		if ($cek > 0) {
+			$this->session->set_flashdata('err', 'Maaf. Santri ini sudah memilih lemari. Silahkan menghubungi operator');
+			redirect('santri/detail/' . $nis);
+		} else {
+			$this->model->update('lemari_data', $data, 'id', $idl);
+			if ($this->db->affected_rows() > 0) {
+				redirect('santri/detail/' . $nis);
+			} else {
+				redirect('santri/detail/' . $nis);
+			}
+		}
+	}
+
+	public function cetakFormulir($nis)
+	{
+		$data['judul'] = 'santri';
+		$data['user'] = $this->Auth_model->current_user();
+
+		$data['pn'] = $this->Auth_model->current_user();
+		$data['data'] = $this->model->santriNis($nis)->row();
+		$data['km'] = $this->model->getBy('lemari_data', 'nis', $nis)->row();
+		$data['dekos'] = $this->model->getBy('dekos', 'nis', $nis)->row();
+		$data['tmpKos'] = array("", "Kantin", "Gus Zaini", "Ny. Farihah", "Ny. Zahro", "Ny. Sa'adah", "Ny. Mamjudah", "Ny. Naily Z.", "Ny. Lathifah");
+
+		$this->load->view('formulir2', $data);
+	}
+	public function cetakIkrar($nis)
+	{
+		$data['judul'] = 'santri';
+		$data['user'] = $this->Auth_model->current_user();
+
+		$data['pn'] = $this->Auth_model->current_user();
+		$data['data'] = $this->model->santriNis($nis)->row();
+		$this->load->view('ikrar', $data);
+	}
+
+	public function cetakNota($nis)
+	{
+		$data['judul'] = 'santri';
+		$data['user'] = $this->Auth_model->current_user();
+		$data['tgn'] = $this->modelTgn->tgnNis($nis)->row();
+
+		$data['totalBayarSm'] = $this->model->getBySum('regist_sm', 'nis', $nis, 'nominal');
+		$data['totalBayar'] = $this->model->getBySum('regist', 'nis', $nis, 'nominal');
+
+		$data['bayarSm'] = $this->model->getBy('regist_sm', 'nis', $nis);
+		$data['bayar'] = $this->model->getBy('regist', 'nis', $nis);
+
+		$data['daftarSm'] = $this->model->getBy('bp_daftar_sm', 'nis', $nis)->result();
+		$data['daftar'] = $this->model->getBy('bp_daftar', 'nis', $nis)->result();
+
+		$data['dekos'] = $this->model->getBy('dekos', 'nis', $nis)->result();
+		$data['tmpKos'] = array("", "Kantin", "Gus Zaini", "Ny. Farihah", "Ny. Zahro", "Ny. Sa'adah", "Ny. Mamjudah", "Ny. Naily Z.", "Ny. Lathifah");
+
+		$data['pn'] = $this->Auth_model->current_user();
+		$data['data'] = $this->model->santriNis($nis)->row();
+		$this->load->view('nota', $data);
+	}
+
+	public function addKos()
+	{
+		$nis = $this->input->post('nis', true);
+		$nominal = rmRp($this->input->post('nominal', true));
+		$santri = $this->model->getBy('tb_santri', 'nis', $nis)->row();
+
+		$cc = $this->db->query("SELECT * FROM dekos WHERE jkl = '$santri->jkl' ORDER BY id_kos DESC LIMIT 1")->row();
+		$tmp = $cc ? $cc->t_kos : '';
+		if ($tmp == '') {
+			if ($santri->jkl == 'Laki-laki') {
+				$tm = 1;
+			} else {
+				$tm = 4;
+			}
+		} elseif ($tmp == 3) {
+			$tm = 1;
+		} elseif ($tmp == 8) {
+			$tm = 4;
+		}
+		// elseif ($tmp == 5) {
+		//     $tm = 7;
+		// }
+		else {
+			$tm = $tmp + 1;
+		}
+
+		$data = [
+			'nis' => $nis,
+			'jkl' => $santri->jkl,
+			'tgl' => date('Y-m-d H:i'),
+			'nominal' => $nominal,
+			't_kos' => $tm,
+			'kasir' => $this->input->post('kasir', true)
+		];
+
+		$this->model->simpan('dekos', $data);
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('ok', 'Dekosan sudah diinput');
+			redirect('santri/detail/' . $nis);
+		} else {
+			$this->session->set_flashdata('error', 'Input Error');
+			redirect('santri/detail/' . $nis);
+		}
+	}
+
+	function lemari()
+	{
+		$data['data'] = $this->model->getTempat()->result();
+
+		$this->load->view('head', $data);
+		$this->load->view('lemari', $data);
+		$this->load->view('foot');
 	}
 }

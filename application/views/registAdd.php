@@ -1,5 +1,5 @@
 <div class="card mt-3">
-    <h5 class="card-header">Input Pembayaran Registrasi Ulang</h5>
+    <h5 class="card-header">Input Pembayaran Registrasi Ulang <button onclick="window.location='<?= base_url('santri/detail/' . $santri->nis) ?>'" class="btn btn-sm btn-danger float-right">Kembali ke Detail Santri</button></h5>
     <div class="card-body">
         <div class="row">
             <div class="col-12">
@@ -154,7 +154,7 @@
                                             Sudah Bayar
                                         </div>
                                         <div class="text-muted">
-                                            <?= rupiah($byrSum->row('nominal')); ?>
+                                            <?= rupiah($totalBayar->row('nominal') + $totalBayarSm->row('nominal')); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +179,7 @@
                                             Kekurangan
                                         </div>
                                         <div class="text-muted">
-                                            <?= rupiah(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba) - $byrSum->row('nominal')) ?>
+                                            <?= rupiah(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba) - ($totalBayar->row('nominal') + $totalBayarSm->row('nominal'))) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -227,6 +227,7 @@
                                 </h5>
                                 <?= form_open('regist/saveAdd'); ?>
                                 <input type="hidden" name="nis" id="" value="<?= $santri->nis; ?>">
+                                <input type="hidden" name="tangg" id="" value="<?= $tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba; ?>">
                                 <label class="form-label required">Nominal</label>
                                 <div>
                                     <input type="text" name="nominal" id="rupiah" class="form-control uang" placeholder="Nominal Bayar" required>
@@ -240,11 +241,11 @@
                                 <label class="form-label required">Via</label>
                                 <div>
                                     <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="via" value="Cash">
+                                        <input class="form-check-input" type="radio" name="via" required value="Cash">
                                         <span class="form-check-label">Cash</span>
                                     </label>
                                     <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="via" value="Transfer">
+                                        <input class="form-check-input" type="radio" name="via" required value="Transfer">
                                         <span class="form-check-label">Transfer</span>
                                     </label>
                                 </div>
@@ -355,7 +356,22 @@
                                         <tbody>
                                             <?php
                                             $no = 1;
-                                            foreach ($byr->result() as $row) :
+                                            foreach ($bayar->result() as $row1) :
+                                            ?>
+                                                <tr>
+                                                    <td><?= $no++; ?></td>
+                                                    <td><?= $row1->tgl_bayar; ?></td>
+                                                    <td><?= $row1->kasir; ?></td>
+                                                    <td><?= $row1->via; ?></td>
+                                                    <td><?= $row1->created; ?></td>
+                                                    <td><?= rupiah($row1->nominal); ?></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            <?php endforeach; ?>
+                                            <?php
+                                            $no = 1;
+                                            foreach ($bayarSm->result() as $row) :
                                             ?>
                                                 <tr>
                                                     <td><?= $no++; ?></td>
@@ -366,10 +382,10 @@
                                                     <td><?= rupiah($row->nominal); ?></td>
                                                     <td>
                                                         <a href="<?= base_url('regist/del/') . $row->id_regist ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin akan dihapus ?')">
-                                                             Del</a>
+                                                            Del</a>
                                                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-large<?= $row->id_regist ?>" class="btn btn-warning btn-sm">
-                                                             Edit</button>
-                                                        <a href="<?= base_url('regist/pesan/') . $row->id_regist ?>" class="btn btn-primary btn-sm"> Kirim</a>
+                                                            Edit</button>
+                                                        <!-- <a href="<?= base_url('regist/pesan/') . $row->id_regist ?>" class="btn btn-primary btn-sm"> Kirim</a> -->
                                                     </td>
                                                 </tr>
                                                 <div class="modal modal-blur fade" id="modal-large<?= $row->id_regist ?>" tabindex="-1" role="dialog" aria-hidden="true">

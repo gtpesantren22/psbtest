@@ -67,7 +67,8 @@ class DaftarModel extends CI_Model
         return $this->db->get();
     }
 
-    function edit($table, $data, $where){
+    function edit($table, $data, $where)
+    {
         $this->db->where('nis', $where);
         $this->db->update($table, $data);
     }

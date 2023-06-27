@@ -6,7 +6,10 @@ class SantriModel extends CI_Model
     function baru()
     {
         $this->db->where('ket', 'baru');
+        $this->db->where('lembaga <>', 'MI');
+        $this->db->where('lembaga <>', 'RA');
         $this->db->from('tb_santri');
+        $this->db->order_by('nama', 'ASC');
         return $this->db->get();
     }
 
@@ -101,6 +104,57 @@ class SantriModel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('api');
+        return $this->db->get();
+    }
+
+    public function getBy($tbl, $wh, $dtwh)
+    {
+        $this->db->where($wh, $dtwh);
+        $this->db->from($tbl);
+        return $this->db->get();
+    }
+
+    public function getByGroup($tbl, $wh, $dtwh, $gr)
+    {
+        $this->db->from($tbl);
+        $this->db->where($wh, $dtwh);
+        $this->db->group_by($gr);
+        return $this->db->get();
+    }
+
+    public function getByGroup2($tbl, $wh, $dtwh, $wh2, $dtwh2, $gr)
+    {
+        $this->db->from($tbl);
+        $this->db->where($wh, $dtwh);
+        $this->db->where($wh2, $dtwh2);
+        $this->db->group_by($gr);
+        return $this->db->get();
+    }
+
+    public function update($tbl, $data, $wh, $dtwh)
+    {
+        $this->db->where($wh, $dtwh);
+        $this->db->update($tbl, $data);
+    }
+
+    function getBySum($tbl, $where, $dtwhere, $sum)
+    {
+        $this->db->select_sum($sum);
+        $this->db->from($tbl);
+        $this->db->where($where, $dtwhere);
+        return $this->db->get();
+    }
+
+    function simpan($table, $data)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function getTempat()
+    {
+        $this->db->select('tb_santri.nama, lemari_data.*');
+        $this->db->from('lemari_data');
+        $this->db->join('tb_santri', 'lemari_data.nis=tb_santri.nis');
         return $this->db->get();
     }
 }
