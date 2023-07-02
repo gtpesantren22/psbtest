@@ -435,6 +435,8 @@ class Santri extends CI_Controller
 
 		$data['pn'] = $this->Auth_model->current_user();
 		$data['data'] = $this->model->santriNis($nis)->row();
+		$data['km'] = $this->model->getBy('lemari_data', 'nis', $nis)->row();
+
 		$this->load->view('nota', $data);
 	}
 

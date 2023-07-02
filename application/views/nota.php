@@ -45,7 +45,7 @@
 
         .wrapper {
             background: var(--white);
-            padding: 30px;
+            padding: 20px;
         }
 
         .invoice_wrapper {
@@ -470,7 +470,23 @@
                 </table>
 
                 <br><br>
+
+                Potong disini
+                <hr>
+                <br>
                 <h3 style="margin-left: 15px;">C. Dekosan Makan</h3>
+                <br><br>
+
+
+                <h4>Nama : <?= $data->nama ?></h4>
+                <h4>Alamat : <?= $data->desa . ' - ' . $data->kec . ' - ' . $data->kab ?></h4>
+                <h4>Lembaga : <?= $data->lembaga ?></h4>
+                <h4>Kamar : <?= $km->komplek . " / " . $km->kamar . " / " . $km->lemari . " / No. " . $km->loker; ?> (<?= $km->wali; ?>)</h4>
+                <h4>Tmp Kos : <?php foreach ($dekos as $rw) {
+                                    echo $tmpKos[$rw->t_kos];
+                                } ?></h4>
+
+                <br>
                 <table>
                     <thead>
                         <th style="text-align: center;">No</th>
@@ -508,11 +524,13 @@
                 </table>
 
             </div>
+            <br><br>
+            <p style="margin-left: 30px;">Kraksaan, <?= tanggalIndo2(date('d-M-Y')) ?></p>
+            <br><br>
             <div class="footer">
-                <p>Thank you and Best Wishes</p>
+                <p><?= $user->nama ?></p>
                 <div class="terms">
-                    <p class="tc bold">Terms & Coditions</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit non praesentium doloribus. Quaerat vero iure itaque odio numquam, debitis illo quasi consequuntur velit, explicabo esse nesciunt error aliquid quis eius!</p>
+                    <p class="tc bold"><?= $user->jabatan ?></p>
                 </div>
             </div>
         </div>
