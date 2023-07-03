@@ -471,8 +471,8 @@
 
                 <br><br>
 
-                Potong disini
-                <hr>
+                <p style="color: red;">Potong disini</p>
+                <hr style="color: red;">
                 <br>
                 <h3 style="margin-left: 15px;">C. Dekosan Makan</h3>
                 <br><br>

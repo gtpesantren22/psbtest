@@ -260,19 +260,19 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">NIK Ayah</label>
                                                 <div class="col">
-                                                    <input type="text" name="a_nik" class="form-control" maxlength="16" value="<?= $data->a_nik ?>" required>
+                                                    <input type="text" name="a_nik" class="form-control" maxlength="16" value="<?= $data->a_nik ?>">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Nama Ayah</label>
                                                 <div class="col">
-                                                    <input type="text" name="bapak" class="form-control" value="<?= $data->bapak ?>" required>
+                                                    <input type="text" name="bapak" class="form-control" value="<?= $data->bapak ?>">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Tmp Lahir</label>
                                                 <div class="col">
-                                                    <input type="text" name="a_tempat" class="form-control" value="<?= $data->a_tempat ?>" required>
+                                                    <input type="text" name="a_tempat" class="form-control" value="<?= $data->a_tempat ?>">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -280,7 +280,7 @@ $thn_i = $spliti[2];
                                                 <div class="col">
 
 
-                                                    <select class="form-control" name="tanggal" required>
+                                                    <select class="form-control" name="tanggal">
                                                         <option value=""> -pilih- </option>
                                                         <?php
                                                         for ($tanggal = 1; $tanggal <= 31; $tanggal++) {
@@ -295,7 +295,7 @@ $thn_i = $spliti[2];
                                                         ?>
                                                     </select>
 
-                                                    <select class="form-control" name="bulan" required>
+                                                    <select class="form-control" name="bulan">
                                                         <option value=""> -pilih- </option>
                                                         <?php
                                                         for ($bulan = 1; $bulan <= 12; $bulan++) {
@@ -308,7 +308,7 @@ $thn_i = $spliti[2];
                                                         ?>
                                                     </select>
 
-                                                    <select class="form-control" name="tahun" required>
+                                                    <select class="form-control" name="tahun">
                                                         <option value=""> -pilih- </option>
                                                         <?php
                                                         $now = date("Y");
@@ -328,7 +328,7 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Pendidikan</label>
                                                 <div class="col">
-                                                    <select name="a_pend" id="" class="form-control" required>
+                                                    <select name="a_pend" id="" class="form-control">
                                                         <option value=""> -pilih- </option>
                                                         <?php foreach ($pend as $ar) : ?>
                                                             <option value="<?= $ar->nama; ?>" <?= $ar->nama === $data->a_pend ? 'selected' : '' ?>>
@@ -341,7 +341,7 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Pekerjaan</label>
                                                 <div class="col">
-                                                    <select name="a_pkj" id="" class="form-control" required>
+                                                    <select name="a_pkj" id="" class="form-control">
                                                         <option value=""> -pilih- </option>
                                                         <?php foreach ($pkj as $ar) : ?>
                                                             <option value="<?= $ar->nama; ?>" <?= $ar->nama === $data->a_pkj ? 'selected' : '' ?>>
@@ -353,7 +353,7 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Penghasilan</label>
                                                 <div class="col">
-                                                    <select name="a_hasil" id="" class="form-control" required>
+                                                    <select name="a_hasil" id="" class="form-control">
                                                         <option value=""> -pilih- </option>
                                                         <?php foreach ($hasil as $ar) : ?>
                                                             <option value="<?= $ar->nama; ?>" <?= $ar->nama === $data->a_hasil ? 'selected' : '' ?>>
@@ -365,9 +365,9 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Status</label>
                                                 <div class="col">
-                                                    <input type="radio" name="a_stts" value="Hidup" <?= $data->a_stts === 'Hidup' ? 'checked' : '' ?> required>
+                                                    <input type="radio" name="a_stts" value="Hidup" <?= $data->a_stts === 'Hidup' ? 'checked' : '' ?>>
                                                     Masih Hidup
-                                                    <input type="radio" name="a_stts" value="Meninggal" <?= $data->a_stts === 'Meninggal' ? 'checked' : '' ?> required>
+                                                    <input type="radio" name="a_stts" value="Meninggal" <?= $data->a_stts === 'Meninggal' ? 'checked' : '' ?>>
                                                     Meniggal
                                                 </div>
                                             </div>
@@ -383,19 +383,19 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">NIK Ibu</label>
                                                 <div class="col">
-                                                    <input type="text" name="i_nik" class="form-control" maxlength="16" value="<?= $data->i_nik ?>" required>
+                                                    <input type="text" name="i_nik" class="form-control" maxlength="16" value="<?= $data->i_nik ?>">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Nama Ibu</label>
                                                 <div class="col">
-                                                    <input type="text" name="ibu" class="form-control" value="<?= $data->ibu ?>" required>
+                                                    <input type="text" name="ibu" class="form-control" value="<?= $data->ibu ?>">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Tmp Lahir</label>
                                                 <div class="col">
-                                                    <input type="text" name="i_tempat" class="form-control" value="<?= $data->i_tempat ?>" required>
+                                                    <input type="text" name="i_tempat" class="form-control" value="<?= $data->i_tempat ?>">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -403,7 +403,7 @@ $thn_i = $spliti[2];
                                                 <div class="col">
 
 
-                                                    <select class="form-control" name="tanggal_i" required>
+                                                    <select class="form-control" name="tanggal_i">
                                                         <option value=""> -pilih- </option>
                                                         <?php
                                                         for ($tanggal = 1; $tanggal <= 31; $tanggal++) {
@@ -418,7 +418,7 @@ $thn_i = $spliti[2];
                                                         ?>
                                                     </select>
 
-                                                    <select class="form-control" name="bulan_i" required>
+                                                    <select class="form-control" name="bulan_i">
                                                         <option value=""> -pilih- </option>
                                                         <?php
                                                         for ($bulan = 1; $bulan <= 12; $bulan++) {
@@ -431,7 +431,7 @@ $thn_i = $spliti[2];
                                                         ?>
                                                     </select>
 
-                                                    <select class="form-control" name="tahun_i" required>
+                                                    <select class="form-control" name="tahun_i">
                                                         <option value=""> -pilih- </option>
                                                         <?php
                                                         $now = date("Y");
@@ -452,7 +452,7 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Pendidikan</label>
                                                 <div class="col">
-                                                    <select name="i_pend" id="" class="form-control" required>
+                                                    <select name="i_pend" id="" class="form-control">
                                                         <option value=""> -pilih- </option>
                                                         <?php foreach ($pend as $ar) : ?>
                                                             <option value="<?= $ar->nama; ?>" <?= $ar->nama === $data->i_pend ? 'selected' : '' ?>>
@@ -465,7 +465,7 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Pekerjaan</label>
                                                 <div class="col">
-                                                    <select name="i_pkj" id="" class="form-control" required>
+                                                    <select name="i_pkj" id="" class="form-control">
                                                         <option value=""> -pilih- </option>
                                                         <?php foreach ($pkj as $ar) : ?>
                                                             <option value="<?= $ar->nama; ?>" <?= $ar->nama === $data->i_pkj ? 'selected' : '' ?>>
@@ -477,7 +477,7 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Penghasilan</label>
                                                 <div class="col">
-                                                    <select name="i_hasil" id="" class="form-control" required>
+                                                    <select name="i_hasil" id="" class="form-control">
                                                         <option value=""> -pilih- </option>
                                                         <?php foreach ($hasil as $ar) : ?>
                                                             <option value="<?= $ar->nama; ?>" <?= $ar->nama === $data->i_hasil ? 'selected' : '' ?>>
@@ -489,9 +489,9 @@ $thn_i = $spliti[2];
                                             <div class="mb-3 row">
                                                 <label for="" class="col-3 col-form-label">Status</label>
                                                 <div class="col">
-                                                    <input type="radio" name="i_stts" value="Hidup" <?= $data->i_stts === 'Hidup' ? 'checked' : '' ?> required>
+                                                    <input type="radio" name="i_stts" value="Hidup" <?= $data->i_stts === 'Hidup' ? 'checked' : '' ?>>
                                                     Masih Hidup
-                                                    <input type="radio" name="i_stts" value="Meninggal" <?= $data->i_stts === 'Meninggal' ? 'checked' : '' ?> required>
+                                                    <input type="radio" name="i_stts" value="Meninggal" <?= $data->i_stts === 'Meninggal' ? 'checked' : '' ?>>
                                                     Meniggal
                                                 </div>
                                             </div>
