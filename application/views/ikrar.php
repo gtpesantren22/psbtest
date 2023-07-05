@@ -19,6 +19,8 @@ if ($nama > 18) {
         $nm_ok = $pc[0] . ' ' . $pc[1] . ' ' . substr($pc[2], 0, 1) . '. ' . substr($pc[3], 0, 1) . '. ' . substr($pc[4], 0, 1) . '.';
     } elseif ($jml == 6) {
         $nm_ok = $pc[0] . ' ' . $pc[1] . ' ' . substr($pc[2], 0, 1) . '. ' . substr($pc[3], 0, 1) . '. ' . substr($pc[4], 0, 1) . '.' . substr($pc[5], 0, 1) . '.';
+    } elseif ($jml == 7) {
+        $nm_ok = $pc[0] . ' ' . $pc[1] . ' ' . substr($pc[2], 0, 1) . '. ' . substr($pc[3], 0, 1) . '. ' . substr($pc[4], 0, 1) . '.' . substr($pc[5], 0, 1) . '.' . substr($pc[6], 0, 1) . '.';
     }
 } else {
     $nm_ok = $data->nama;
