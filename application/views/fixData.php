@@ -38,6 +38,13 @@
     </div>
 </div>
 
+<?php if ($this->session->flashdata('ok')) : ?>
+    <div class="alert alert-success"><?= $this->session->flashdata('ok') ?></div>
+<?php endif; ?>
+<?php if ($this->session->flashdata('error')) : ?>
+    <div class="alert alert-danger"><?= $this->session->flashdata('error') ?></div>
+<?php endif; ?>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">

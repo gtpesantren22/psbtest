@@ -516,5 +516,21 @@ class Santri extends CI_Controller
 	function kirim($nis)
 	{
 		$data = $this->model->getBy('fix_data', 'nis', $nis)->row();
+
+		if ($data) {
+			$this->session->set_flashdata('error', 'Data sudah kirim');
+			redirect('santri/sendData');
+		} else {
+			$datas = ['nis' => $nis];
+			$this->model->simpan('fix_data', $datas);
+
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('ok', 'Data berhasil dikirim');
+				redirect('santri/sendData');
+			} else {
+				$this->session->set_flashdata('error', 'Edit Error');
+				redirect('santri/sendData');
+			}
+		}
 	}
 }
