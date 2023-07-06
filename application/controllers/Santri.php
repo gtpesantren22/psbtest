@@ -493,4 +493,28 @@ class Santri extends CI_Controller
 		$this->load->view('lemari', $data);
 		$this->load->view('foot');
 	}
+
+	function sendData()
+	{
+		$data['data'] = $this->db->query("SELECT * FROM tb_santri JOIN dekos ON tb_santri.nis=dekos.nis WHERE lembaga <> '' AND lembaga != 'RA' AND lembaga != 'MI' AND NOT EXISTS (SELECT * FROM fix_data WHERE tb_santri.nis=fix_data.nis) ")->result();
+
+		$data['dataHasil'] = $this->db->query("SELECT * FROM tb_santri JOIN fix_data ON tb_santri.nis=fix_data.nis ")->result();
+
+		$this->load->view('head', $data);
+		$this->load->view('fixData', $data);
+		$this->load->view('foot');
+	}
+
+	function cekData($nis)
+	{
+		$data['santri'] = $this->model->getBy('tb_santri', 'nis', $nis)->row();
+		$this->load->view('head', $data);
+		$this->load->view('identitas', $data);
+		$this->load->view('foot');
+	}
+
+	function kirim($nis)
+	{
+		$data = $this->model->getBy('fix_data', 'nis', $nis)->row();
+	}
 }
