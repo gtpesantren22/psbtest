@@ -77,7 +77,7 @@ if ($nama > 18) {
                     </tr>
                     <tr>
                         <td colspan="9" style="text-align: center; font-size: 12px; font-weight: bold;">TAHUN AJARAN
-                            2021-2022</td>
+                            2023-2024</td>
                     </tr>
                     <tr height="10px">
                         <td colspan="9"></td>
