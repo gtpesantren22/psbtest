@@ -458,7 +458,9 @@ class Santri extends CI_Controller
 			$tm = 1;
 		} elseif ($tmp == 5) {
 			$tm = 8;
-		} elseif ($tmp == 6 || $tmp == 7) {
+		} elseif ($tmp == 6) {
+			$tm = 8;
+		} elseif ($tmp == 7) {
 			$tm = 8;
 		} elseif ($tmp == 8) {
 			$tm = 4;
