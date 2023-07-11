@@ -514,6 +514,8 @@ class Santri extends CI_Controller
 	function cekData($nis)
 	{
 		$data['santri'] = $this->model->getBy('tb_santri', 'nis', $nis)->row();
+		$data['foto'] = $this->model->getBy('foto_file', 'nis', $nis)->row();
+		$data['berkas'] = $this->model->getBy('berkas_file', 'nis', $nis)->row();
 		$this->load->view('head', $data);
 		$this->load->view('identitas', $data);
 		$this->load->view('foot');

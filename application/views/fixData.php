@@ -28,7 +28,7 @@
                             <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td>
                             <td><?= $row->lembaga; ?></td>
                             <td>
-
+                                <button class="btn btn-sm btn-warning" onclick="window.location = '<?= base_url('santri/cekData/' . $row->nis) ?>' ">Cek</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -113,6 +113,12 @@
                                     </tr>
                                 </table>
                             </div>
+                            <div class="col-md-5">
+                                Foto Santri & Berkas Persyaratan <br>
+                                <img src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $foto->diri ?>" height="200">
+                                <img src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $berkas->kk ?>" height="200">
+                                <img src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $berkas->akta ?>" height="200">
+                            </div>
                         </div>
 
                     </div>
