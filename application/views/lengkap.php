@@ -55,6 +55,7 @@
                                     </tr>
                                 </table>
                                 <button type="button" class="btn btn-warning" onclick="window.location = '<?= base_url('santri/edit/' . $santri->nis) ?>' "><i class="fa-solid fa-edit"></i> Edit Data Santri</button>
+                                <button type="button" class="btn btn-success" onclick="window.location = '<?= base_url('santri/kirim/' . $santri->nis) ?>' "><i class="fa-solid fa-send"></i> Kirim Data</button>
                             </div>
                             <div class="col-md-5">
                                 Foto Santri & Berkas Persyaratan <br>

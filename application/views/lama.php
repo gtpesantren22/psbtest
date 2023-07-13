@@ -45,9 +45,9 @@
                                     </label>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="<?= base_url('santri/edit/' . $row->nis); ?>">Edit</a>
-                                        <!-- <a class="dropdown-item" href="<?= base_url('santriAdm/send/' . $row->nis); ?>">Japri</a>
-                                    <a class="dropdown-item" href="<?= base_url('santriAdm/sendGp/' . $row->nis); ?>">Group</a>
-                                    <a class="dropdown-item" href="<?= base_url('santriAdm/sendAkun/' . $row->nis); ?>">Akun</a> -->
+                                        <a class="dropdown-item" href="<?= base_url('santri/detail/' . $row->nis); ?>">Detail</a>
+                                        <!-- <a class="dropdown-item" href="<?= base_url('santriAdm/sendGp/' . $row->nis); ?>">Group</a> -->
+                                        <!-- <a class="dropdown-item" href="<?= base_url('santriAdm/sendAkun/' . $row->nis); ?>">Akun</a> -->
                                     </div>
                                 </div>
                             </td>
