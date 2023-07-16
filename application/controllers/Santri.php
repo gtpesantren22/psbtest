@@ -541,4 +541,11 @@ class Santri extends CI_Controller
 			}
 		}
 	}
+
+	function cekKartu($jkl)
+	{
+		$data['data'] = $this->model->getBy2Ord('tb_santri', 'ket', 'baru', 'jkl', $jkl, 'nama')->result();
+
+		$this->load->view('cekKartu', $data);
+	}
 }

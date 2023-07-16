@@ -157,4 +157,19 @@ class SantriModel extends CI_Model
         $this->db->join('tb_santri', 'lemari_data.nis=tb_santri.nis');
         return $this->db->get();
     }
+
+    function getBy2($table, $where1, $dtwhere1, $where2, $dtwhere2)
+    {
+        $this->db->where($where1, $dtwhere1);
+        $this->db->where($where2, $dtwhere2);
+        return $this->db->get($table);
+    }
+
+    function getBy2Ord($table, $where1, $dtwhere1, $where2, $dtwhere2, $ord)
+    {
+        $this->db->where($where1, $dtwhere1);
+        $this->db->where($where2, $dtwhere2);
+        $this->db->order_by($ord, 'ASC');
+        return $this->db->get($table);
+    }
 }

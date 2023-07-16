@@ -2,6 +2,10 @@
     <h5 class="card-header">
         Data Kirim ke D'Pontren
         <button class="btn btn-primary btn-sm float-right" data-bs-toggle="modal" data-bs-target="#exampleModal">Pilih Santri</button>
+        &nbsp;-&nbsp;
+        <a href="cekKartu/Laki-laki" target="_blank" class="btn btn-warning btn-sm">Cek Data Santri Putra</a>
+        <a href="cekKartu/Perempuan" target="_blank" class="btn btn-warning btn-sm">Cek Data Santri Putri</a>
+
     </h5>
     <div class="card-body">
         <div class="table-responsive">
