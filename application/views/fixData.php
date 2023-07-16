@@ -30,7 +30,7 @@
                             <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td>
                             <td><?= $row->bapak; ?></td>
                             <td><?= $row->ibu; ?></td>
-                            <td><?= $row->lembaga; ?></td>
+                            <td><?= $row->lembaga; ?><?= $row->ket == 'baru' ? "<span class='badge bg-primary'> Baru</span>" : "<span class='badge bg-danger'> Lama</span>" ?></td>
                             <td>
                                 <button class="btn btn-sm btn-warning" onclick="window.location = '<?= base_url('santri/cekData/' . $row->nis) ?>' ">Cek</button>
                             </td>
