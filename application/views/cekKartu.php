@@ -36,6 +36,7 @@
                 <td><img src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $foto->diri ?>" height="100"></td>
                 <td><?= $d->nis ?><br>
                     <?= $d->nama ?><br>
+                    <?= $d->lembaga ?><br>
                     <?= $d->tempat . ', ' . date('d-M-Y', strtotime($d->tanggal)) ?><br>
                     <?= $d->desa . ' - ' . $d->kec . ' - ' . $d->kab ?>
                 </td>
