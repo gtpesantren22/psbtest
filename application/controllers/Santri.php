@@ -545,7 +545,7 @@ class Santri extends CI_Controller
 	function cekKartu($jkl)
 	{
 		// $data['data'] = $this->model->getBy2Ord('tb_santri', 'ket', 'baru', 'jkl', $jkl, 'nama')->result();
-		$data['data'] = $this->db->query("SELECT * FROM tb_santri WHERE ket = 'baru' AND jkl = '$jkl' AND lembaga != 'MI' AND lembaga != 'RA' ORDER BY nama ASC")->result();
+		$data['data'] = $this->db->query("SELECT * FROM tb_santri WHERE ket = 'baru' AND jkl = '$jkl' AND lembaga != 'MI' AND lembaga != 'RA' ORDER BY nama ASC, lembaga ASC")->result();
 
 		$this->load->view('cekKartu', $data);
 	}
