@@ -12,6 +12,8 @@
                         <th>NIS</th>
                         <th>Nama</th>
                         <th>Alamat</th>
+                        <th>Bapak</th>
+                        <th>Ibu</th>
                         <th>Lembaga</th>
                         <th>#</th>
                     </tr>
@@ -26,6 +28,8 @@
                             <td><?= $row->nis; ?></td>
                             <td><?= $row->nama; ?></td>
                             <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td>
+                            <td><?= $row->bapak; ?></td>
+                            <td><?= $row->ibu; ?></td>
                             <td><?= $row->lembaga; ?></td>
                             <td>
                                 <button class="btn btn-sm btn-warning" onclick="window.location = '<?= base_url('santri/cekData/' . $row->nis) ?>' ">Cek</button>
