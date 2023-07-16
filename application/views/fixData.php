@@ -66,6 +66,7 @@
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Lembaga</th>
+                                <th>Status</th>
                                 <th>#</th>
                             </tr>
                         </thead>
@@ -80,6 +81,7 @@
                                     <td><?= $row->nama; ?></td>
                                     <td><?= $row->desa . ' - ' . $row->kec . ' - ' . $row->kab; ?></td>
                                     <td><?= $row->lembaga; ?></td>
+                                    <td><?= $row->stts == 'Terverifikasi' ? "<span class='badge bg-success'>Terverifikasi</span>" : "<span class='badge bg-danger'>Belum</span>" ?></td>
                                     <td>
                                         <button class="btn btn-sm btn-warning" onclick="window.location = '<?= base_url('santri/cekData/' . $row->nis) ?>' ">Pilih</button>
                                     </td>
