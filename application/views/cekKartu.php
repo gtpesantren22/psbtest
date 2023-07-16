@@ -26,6 +26,7 @@
             $counter = 0;
             foreach ($data as $d) :
                 $foto = $this->db->query("SELECT * FROM foto_file WHERE nis = '$d->nis' ")->row();
+                $foto->diri == '' ? $ft = 'https://psbtest.ppdwk.com/assets/img/foto-kosong.jpg' :  $ft = 'https://psb.ppdwk.com/assets/berkas/' . $foto->diri;
 
                 if ($counter % 2 === 0) {
                     // Baris baru dimulai
@@ -33,7 +34,7 @@
                 }
             ?>
 
-                <td><img src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $foto->diri ?>" height="100"></td>
+                <td><img src="<?= $ft ?>" height="100"></td>
                 <td><?= $d->nis ?><br>
                     <?= $d->nama ?><br>
                     <?= $d->lembaga ?><br>
