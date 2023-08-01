@@ -67,6 +67,7 @@
                 <td>No</td>
                 <td>NIS</td>
                 <td>Nama</td>
+                <td>Lembaga</td>
                 <td>JKL</td>
                 <td>HP</td>
                 <td>Alamat</td>
@@ -80,6 +81,7 @@
                     <td><?= $nmr++ ?></td>
                     <td><?= $d->nis ?></td>
                     <td><?= $d->nama ?></td>
+                    <td><?= $d->lembaga ?></td>
                     <td><?= $d->jkl ?></td>
                     <td><?= $d->hp ?></td>
                     <td><?= $d->desa . ' - ' . $d->kec . ' - ' . $d->kab ?></td>
