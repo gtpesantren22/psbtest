@@ -20,11 +20,13 @@
 </head>
 
 <body>
+    <h2>Total : <?= $data->num_rows() ?></h2>
     <table>
         <tbody>
             <?php
             $counter = 0;
-            foreach ($data as $d) :
+            $nmr = 1;
+            foreach ($data->result() as $d) :
                 $foto = $this->db->query("SELECT * FROM foto_file WHERE nis = '$d->nis' ")->row();
                 $foto->diri == '' ? $ft = 'https://psbtest.ppdwk.com/assets/img/foto-kosong.jpg' :  $ft = 'https://psb.ppdwk.com/assets/berkas/' . $foto->diri;
 
@@ -56,6 +58,35 @@
                 echo '</tr>';
             }
             ?>
+        </tbody>
+    </table>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <td>No</td>
+                <td>NIS</td>
+                <td>Nama</td>
+                <td>JKL</td>
+                <td>HP</td>
+                <td>Alamat</td>
+                <td>Tempat</td>
+                <td>Tanggal</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($data2->result() as $d) : ?>
+                <tr>
+                    <td><?= $nmr++ ?></td>
+                    <td><?= $d->nis ?></td>
+                    <td><?= $d->nama ?></td>
+                    <td><?= $d->jkl ?></td>
+                    <td><?= $d->hp ?></td>
+                    <td><?= $d->desa . ' - ' . $d->kec . ' - ' . $d->kab ?></td>
+                    <td><?= $d->tempat ?></td>
+                    <td><?= $d->tanggal ?></td>
+                </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
 
