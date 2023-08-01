@@ -84,7 +84,7 @@
                     <td><?= $d->hp ?></td>
                     <td><?= $d->desa . ' - ' . $d->kec . ' - ' . $d->kab ?></td>
                     <td><?= $d->tempat ?></td>
-                    <td><?= $d->tanggal ?></td>
+                    <td><?= date('Y-m-d', strtotime($d->tanggal)) ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
