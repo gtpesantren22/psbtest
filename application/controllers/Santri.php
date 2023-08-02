@@ -547,7 +547,7 @@ class Santri extends CI_Controller
 		// $data['data'] = $this->model->getBy2Ord('tb_santri', 'ket', 'baru', 'jkl', $jkl, 'nama')->result();
 		$data['data'] = $this->db->query("SELECT * FROM tb_santri WHERE ket = 'baru' AND jkl = '$jkl' AND lembaga != 'MI' AND lembaga != 'RA' AND lembaga != '' ORDER BY lembaga ASC, nama ASC");
 
-		$data['data2'] = $this->db->query("SELECT * FROM tb_santri JOIN foto_file ON tb_santri.nis=foto_file.nis WHERE ket = 'baru' AND jkl = '$jkl' AND lembaga != 'MI' AND lembaga != 'RA' AND lembaga != '' AND diri != '' ORDER BY lembaga ASC, nama ASC");
+		$data['data2'] = $this->db->query("SELECT *, tb_santri.ibu AS nmIbu FROM tb_santri JOIN foto_file ON tb_santri.nis=foto_file.nis WHERE ket = 'baru' AND jkl = '$jkl' AND lembaga != 'MI' AND lembaga != 'RA' AND lembaga != '' AND diri != '' ORDER BY lembaga ASC, nama ASC");
 
 		$this->load->view('cekKartu', $data);
 	}

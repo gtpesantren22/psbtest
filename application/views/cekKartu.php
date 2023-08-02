@@ -90,7 +90,7 @@
                     <td><?= $d->tempat ?></td>
                     <td><?= date('Y-m-d', strtotime($d->tanggal)) ?></td>
                     <td><?= $d->bapak ?></td>
-                    <td><?= $d->ibu ?></td>
+                    <td><?= $d->nmIbu ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
