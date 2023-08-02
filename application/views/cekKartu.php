@@ -73,6 +73,8 @@
                 <td>Alamat</td>
                 <td>Tempat</td>
                 <td>Tanggal</td>
+                <td>Bapak</td>
+                <td>Ibu</td>
             </tr>
         </thead>
         <tbody>
@@ -87,6 +89,8 @@
                     <td><?= $d->desa . ' - ' . $d->kec . ' - ' . $d->kab ?></td>
                     <td><?= $d->tempat ?></td>
                     <td><?= date('Y-m-d', strtotime($d->tanggal)) ?></td>
+                    <td><?= $d->bapak ?></td>
+                    <td><?= $d->ibu ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
