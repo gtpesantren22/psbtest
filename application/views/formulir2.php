@@ -53,7 +53,7 @@
             <td align="center">
                 <b style="font-size:23px;">PANITIA PENERIAMAAN SANTRI BARU (PSB)</b> <br>
                 <b style="font-size:27px;">PONPES DARUL LUGHAH WAL KAROMAH</b> <br>
-                <b style="font-size:20px;">TAHUN AJARAN 2023/2024</b>
+                <b style="font-size:20px;">TAHUN AJARAN 2024/2025</b>
             </td>
         </tr>
         <tr>
@@ -76,7 +76,7 @@
         <center>
             PANITIA PENERIAMAAN SANTRI BARU (PSB) <br>
             PONPES DARUL LUGHAH WAL KAROMAH<br>
-            TAHUN PELAJARAN 2023/2024</center>
+            TAHUN PELAJARAN 2024/2025</center>
     </b>
     <br>
 
@@ -171,11 +171,11 @@
             <td>:</td>
             <td><?= $data->hp; ?></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>KAMAR</td>
             <td>:</td>
             <td><?= $km->komplek . " / " . $km->kamar . " / " . $km->loker; ?> (<?= $km->wali; ?>)</td>
-        </tr>
+        </tr> -->
         <tr>
             <td>TEMPAT KOS</td>
             <td>:</td>

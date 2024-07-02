@@ -4,9 +4,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/fontawesome/js/all.min.js') ?>"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src=" https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src=" https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="<?= base_url('assets/dist/jquery.mask.min.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -17,7 +18,12 @@
                 reverse: true
             });
 
-            $('.datepicker').datepicker();
+            // $('.datepicker').datepicker();
+            $('.pilih2').select2({
+                theme: "bootstrap-5",
+                selectionCssClass: "select2--small",
+                dropdownCssClass: "select2--small",
+            });
         });
     </script>
 

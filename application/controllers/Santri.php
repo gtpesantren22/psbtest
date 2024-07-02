@@ -344,6 +344,8 @@ class Santri extends CI_Controller
 		$data['bayarSm'] = $this->model->getBy('regist_sm', 'nis', $nis);
 		$data['bayar'] = $this->model->getBy('regist', 'nis', $nis);
 
+		$data['bp'] = $this->model->getBy('bp', 'nis', $nis)->result();
+
 		$data['totalBayarSm'] = $this->model->getBySum('regist_sm', 'nis', $nis, 'nominal');
 		$data['totalBayar'] = $this->model->getBySum('regist', 'nis', $nis, 'nominal');
 
@@ -429,6 +431,8 @@ class Santri extends CI_Controller
 
 		$data['daftarSm'] = $this->model->getBy('bp_daftar_sm', 'nis', $nis)->result();
 		$data['daftar'] = $this->model->getBy('bp_daftar', 'nis', $nis)->result();
+
+		$data['bp'] = $this->model->getBy('bp', 'nis', $nis)->result();
 
 		$data['dekos'] = $this->model->getBy('dekos', 'nis', $nis)->result();
 		$data['tmpKos'] = array("", "Kantin", "Gus Zaini", "Ny. Farihah", "Ny. Zahro", "Ny. Sa'adah", "Ny. Mamjudah", "Ny. Naily Z.", "Ny. Lathifah");
@@ -550,5 +554,29 @@ class Santri extends CI_Controller
 		$data['data2'] = $this->db->query("SELECT *, tb_santri.ibu AS nmIbu FROM tb_santri JOIN foto_file ON tb_santri.nis=foto_file.nis WHERE ket = 'baru' AND jkl = '$jkl' AND lembaga != 'MI' AND lembaga != 'RA' AND lembaga != '' AND diri != '' ORDER BY lembaga ASC, nama ASC, tb_santri.bapak ASC, tb_santri.ibu ASC");
 
 		$this->load->view('cekKartu', $data);
+	}
+
+	public function addBP()
+	{
+		$nis = $this->input->post('nis', true);
+		$nominal = rmRp($this->input->post('nominal', true));
+		$ket = $this->input->post('ket', true);
+
+		$data = [
+			'nis' => $nis,
+			'tanggal' => date('Y-m-d'),
+			'nominal' => $nominal,
+			'ket' => $ket,
+			'created_at' => date('Y-m-d H:i:s'),
+		];
+
+		$this->model->simpan('bp', $data);
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('ok', 'BP sudah diinput');
+			redirect('santri/detail/' . $nis);
+		} else {
+			$this->session->set_flashdata('error', 'Input Error');
+			redirect('santri/detail/' . $nis);
+		}
 	}
 }

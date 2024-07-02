@@ -278,7 +278,7 @@
                         <img src="<?= base_url('assets/img/logo1.png') ?>" height="70" alt="code logo">
                         <div class="title_wrap">
                             <p class="title bold">KWITANSI PELUNASAN PENDAFTARAN</p>
-                            <p class="sub_title2">PANITIA PENERIMAAN SANTRI BARU (PSB) 2023/2024</p>
+                            <p class="sub_title2">PANITIA PENERIMAAN SANTRI BARU (PSB) 2024/2025</p>
                             <p class="sub_title2">Pondok Pesantren Darul Lughah Wal Karomah</p>
                             <p class="sub_title">Jl.Mayjend Pandjaitan No. 12, Sidomukti - Kraksaan Probolinggo (67682)</p>
                         </div>
@@ -369,12 +369,17 @@
                             <td style="text-align: left;">Uang Gedung</td>
                             <td style="text-align: right;"><?= number_format($tgn->infaq, 2) ?></td>
                         </tr>
+                        <tr>
+                            <td style="text-align: center;">8.</td>
+                            <td style="text-align: left;">Buku Biografi</td>
+                            <td style="text-align: right;"><?= number_format($tgn->buku_bio, 2) ?></td>
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td></td>
                             <td style="text-align: right;">TOTAL</td>
-                            <td style="text-align: right;"> <?= number_format($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba, 2) ?> </td>
+                            <td style="text-align: right;"> <?= number_format($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio, 2) ?> </td>
                         </tr>
                         <tr>
                             <td></td>
@@ -384,7 +389,7 @@
                         <tr>
                             <td></td>
                             <td style="text-align: right;">Sisa</td>
-                            <td style="text-align: right;"> <?= number_format(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba) - ($totalBayarSm->row('nominal') + $totalBayar->row('nominal')), 2) ?> </td>
+                            <td style="text-align: right;"> <?= number_format(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio) - ($totalBayarSm->row('nominal') + $totalBayar->row('nominal')), 2) ?> </td>
                         </tr>
                     </tfoot>
                 </table>
@@ -474,14 +479,14 @@
                 <p style="color: red;">Potong disini</p>
                 <hr style="color: red;">
                 <br>
-                <h3 style="margin-left: 15px;">C. Dekosan Makan</h3>
+                <h3 style="margin-left: 15px;">C. Biaya Pendidikan (BP)</h3>
                 <br><br>
 
 
                 <h4>Nama : <?= $data->nama ?></h4>
                 <h4>Alamat : <?= $data->desa . ' - ' . $data->kec . ' - ' . $data->kab ?></h4>
                 <h4>Lembaga : <?= $data->lembaga ?></h4>
-                <h4>Kamar : <?= $km->komplek . " / " . $km->kamar . " / " . $km->lemari . " / No. " . $km->loker; ?> (<?= $km->wali; ?>)</h4>
+                <!-- <h4>Kamar : <?= $km->komplek . " / " . $km->kamar . " / " . $km->lemari . " / No. " . $km->loker; ?> (<?= $km->wali; ?>)</h4> -->
                 <h4>Tmp Kos : <?php foreach ($dekos as $rw) {
                                     echo $tmpKos[$rw->t_kos];
                                 } ?></h4>
@@ -492,32 +497,19 @@
                         <th style="text-align: center;">No</th>
                         <th style="text-align: left;">Nominal</th>
                         <th style="text-align: left;">Tgl Bayar</th>
-                        <th style="text-align: left;">Penerima</th>
-                        <th style="text-align: left;">Tempat Kos</th>
+                        <th style="text-align: left;">Keterangan</th>
                     </thead>
 
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($dekos as $row) :
+                        foreach ($bp as $row) :
                         ?>
                             <tr>
                                 <td style="text-align: center;"><?= $no++; ?></td>
                                 <td><?= rupiah($row->nominal); ?></td>
-                                <td><?= $row->tgl; ?></td>
-                                <td><?= $row->kasir; ?></td>
-                                <td><?= $tmpKos[$row->t_kos] ?></td>
-                            </tr>
-                        <?php
-                        endforeach;
-                        foreach ($daftarSm as $row) :
-                        ?>
-                            <tr>
-                                <td><?= $no++; ?></td>
-                                <td><?= rupiah($row->nominal); ?></td>
-                                <td><?= $row->tgl_bayar; ?></td>
-                                <td><?= $row->kasir; ?></td>
-                                <td><span class="badge text-bg-success"><?= $row->via; ?></span></td>
+                                <td><?= $row->tanggal; ?></td>
+                                <td><?= $row->ket; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

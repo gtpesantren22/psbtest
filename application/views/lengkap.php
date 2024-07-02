@@ -223,6 +223,15 @@
                                 } ?>
                                 <br>
                                 <button onclick="window.location= '<?= base_url('santri/kamar/' . $santri->nis) ?>' " class="btn btn-sm btn-success">Pilih Kamar Santri</button>
+                                <hr>
+                                <h5>Input nominal BP</h5>
+                                <?php if ($bp) {
+                                    foreach ($bp as $key) {
+                                        echo rupiah($key->nominal) . ' (' . $key->ket . ')';
+                                    }
+                                } ?>
+                                <br>
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#inputBP">Input Data</button>
                             </div>
                             <br>
                             <div class="col-md-3">
@@ -273,6 +282,40 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Nominal</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control uang" name="nominal" id="" required>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+            <?= form_close() ?>
+        </div>
+    </div>
+</div>
+
+<!-- Add Dekosan -->
+<div class="modal fade" id="inputBP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Input Data BP</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <?= form_open('santri/addBP') ?>
+            <input type="hidden" name="nis" value="<?= $santri->nis ?>">
+            <input type="hidden" name="kasir" value="<?= $user->nama ?>">
+            <div class="modal-body">
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nominal</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control uang" name="nominal" id="" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Keterangan</label>
+                    <div class="col-sm-10">
+                        <textarea name="ket" id="" class="form-control" required></textarea>
                     </div>
                 </div>
             </div>
