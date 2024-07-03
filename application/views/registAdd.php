@@ -131,7 +131,7 @@
                                             Total Tanggungan
                                         </div>
                                         <div class="text-muted">
-                                            <?= rupiah($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba); ?>
+                                            <?= rupiah($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +179,7 @@
                                             Kekurangan
                                         </div>
                                         <div class="text-muted">
-                                            <?= rupiah(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba) - ($totalBayar->row('nominal') + $totalBayarSm->row('nominal'))) ?>
+                                            <?= rupiah(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio) - ($totalBayar->row('nominal') + $totalBayarSm->row('nominal'))) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +227,7 @@
                                 </h5>
                                 <?= form_open('regist/saveAdd'); ?>
                                 <input type="hidden" name="nis" id="" value="<?= $santri->nis; ?>">
-                                <input type="hidden" name="tangg" id="" value="<?= $tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba; ?>">
+                                <input type="hidden" name="tangg" id="" value="<?= $tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio; ?>">
                                 <label class="form-label required">Nominal</label>
                                 <div>
                                     <input type="text" name="nominal" id="rupiah" class="form-control uang" placeholder="Nominal Bayar" required>
