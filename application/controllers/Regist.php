@@ -77,7 +77,8 @@ class Regist extends CI_Controller
 			'kalender' => $biaya->kalender,
 			'seragam_pes' => $biaya->seragam_pes,
 			'seragam_lem' => $biaya->seragam_lem,
-			'orsaba' => $biaya->orsaba
+			'orsaba' => $biaya->orsaba,
+			'buku_bio' => $biaya->buku_bio
 		];
 
 		$this->model->edit('tanggungan', $data, $nis);
@@ -99,7 +100,8 @@ class Regist extends CI_Controller
 			'kalender' => rmRp($this->input->post('kalender', true)),
 			'seragam_pes' => rmRp($this->input->post('seragam_pes', true)),
 			'seragam_lem' => rmRp($this->input->post('seragam_lem', true)),
-			'orsaba' => rmRp($this->input->post('orsaba', true))
+			'orsaba' => rmRp($this->input->post('orsaba', true)),
+			'buku_bio' => rmRp($this->input->post('buku_bio', true))
 		];
 		$this->model->edit('tanggungan', $data, $nis);
 		if ($this->db->affected_rows() > 0) {
@@ -205,7 +207,7 @@ class Regist extends CI_Controller
 		$tgn = $this->model->tgnNis($nis)->row();
 		$byr = $this->model->byrSum($nis)->row();
 
-		$ttg = $tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba;
+		$ttg = $tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio;
 
 		if ($data->gel === '1') {
 			$link = 'https://chat.whatsapp.com/L8O3TgvrpLVFqMejIMoIF3';
@@ -260,6 +262,7 @@ _*Catatan :_*
 		$buku = $kartu - $tangg->kartu;
 		$kalender = $buku - $tangg->buku;
 		$infaq = $kalender - $tangg->kalender;
+		$buku_bio = $infaq - $tangg->infaq;
 
 		if ($seragam_pes >= $tangg->seragam_pes) {
 			$this->model->edit('tanggungan', ['st_seragam_pes' => 1], $nis);
@@ -295,6 +298,11 @@ _*Catatan :_*
 			$this->model->edit('tanggungan', ['st_infaq' => 1], $nis);
 		} else {
 			$this->model->edit('tanggungan', ['st_infaq' => 0], $nis);
+		}
+		if ($buku_bio >= $tangg->buku_bio) {
+			$this->model->edit('tanggungan', ['st_buku_bio' => 1], $nis);
+		} else {
+			$this->model->edit('tanggungan', ['st_buku_bio' => 0], $nis);
 		}
 
 		redirect('regist/inDaftar/' . $nis);

@@ -315,9 +315,14 @@
                                         <th>Uang Gedung</th>
                                         <th><?= check($tgn->st_infaq) . rupiah($tgn->infaq) ?></th>
                                     </tr>
+                                    <tr>
+                                        <th>8</th>
+                                        <th>Buku Biografi</th>
+                                        <th><?= check($tgn->st_buku_bio) . rupiah($tgn->buku_bio) ?></th>
+                                    </tr>
                                     <tr style="background-color: green; color: white;">
                                         <th colspan="2">TOTAL</th>
-                                        <th><?= rupiah($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba) ?>
+                                        <th><?= rupiah($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio) ?>
                                         </th>
                                     </tr>
                                 </table>
@@ -492,6 +497,11 @@
                             <th>7</th>
                             <th>Uang Gedung</th>
                             <th><input type="text" name="infaq" class="form-control uang" value="<?= $tgn->infaq ?>" required></th>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <th>Buku Biografi</th>
+                            <th><input type="text" name="buku_bio" class="form-control uang" value="<?= $tgn->buku_bio ?>" required></th>
                         </tr>
                         <tr style=" background-color: greenyellow">
                             <th colspan="2">TOTAL</th>
