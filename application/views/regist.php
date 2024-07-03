@@ -27,10 +27,10 @@
                             <td><?= $no++; ?></td>
                             <td><?= $row->nama; ?></td>
                             <td><?= $row->lembaga; ?></td>
-                            <td><?= rupiah($row->infaq + $row->buku + $row->kartu + $row->kalender + $row->seragam_pes + $row->seragam_lem + $row->orsaba); ?>
+                            <td><?= rupiah($row->infaq + $row->buku + $row->kartu + $row->kalender + $row->seragam_pes + $row->seragam_lem + $row->orsaba + $row->buku_bio); ?>
                             </td>
                             <td><?= rupiah($byr->jml); ?></td>
-                            <td><?= rupiah(($row->infaq + $row->buku + $row->kartu + $row->kalender + $row->seragam_pes + $row->seragam_lem + $row->orsaba) - $byr->jml); ?>
+                            <td><?= rupiah(($row->infaq + $row->buku + $row->kartu + $row->kalender + $row->seragam_pes + $row->seragam_lem + $row->orsaba + $row->buku_bio) - $byr->jml); ?>
                             </td>
                             <td>
                                 <a href="<?= base_url('regist/inDaftar/') . $row->nis ?>" class="btn btn-warning btn-sm">

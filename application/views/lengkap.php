@@ -134,7 +134,7 @@
                                                 Total Tanggungan
                                             </div>
                                             <div class="text-muted">
-                                                <?= rupiah($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba); ?>
+                                                <?= rupiah($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -182,7 +182,7 @@
                                                 Kekurangan
                                             </div>
                                             <div class="text-muted">
-                                                <?= rupiah(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba) - ($totalBayarSm->row('nominal') + $totalBayar->row('nominal'))) ?>
+                                                <?= rupiah(($tgn->infaq + $tgn->buku + $tgn->kartu + $tgn->kalender + $tgn->seragam_pes + $tgn->seragam_lem + $tgn->orsaba + $tgn->buku_bio) - ($totalBayarSm->row('nominal') + $totalBayar->row('nominal'))) ?>
                                             </div>
                                         </div>
                                     </div>
