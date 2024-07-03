@@ -155,6 +155,8 @@ class SantriModel extends CI_Model
         $this->db->select('tb_santri.nama, lemari_data.*');
         $this->db->from('lemari_data');
         $this->db->join('tb_santri', 'lemari_data.nis=tb_santri.nis');
+        $this->db->where('tb_santri.lembaga !=', 'RA');
+        $this->db->where('tb_santri.lembaga !=', 'MI');
         return $this->db->get();
     }
 

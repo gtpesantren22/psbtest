@@ -8,6 +8,8 @@ class BerkasModel extends CI_Model
 		$this->db->from('berkas_file');
 		$this->db->join('tb_santri', 'ON berkas_file.nis=tb_santri.nis');
 		$this->db->where('tb_santri.ket', 'baru');
+		$this->db->where('tb_santri.lembaga !=', 'RA');
+		$this->db->where('tb_santri.lembaga !=', 'MI');
 		$this->db->order_by('nama', 'ASC');
 		$result = $this->db->get()->result(); // Tampilkan semua data kota berdasarkan id provinsi
 
@@ -38,6 +40,8 @@ class BerkasModel extends CI_Model
 		$this->db->from('atribut');
 		$this->db->join('tb_santri', 'ON atribut.nis=tb_santri.nis');
 		$this->db->where('tb_santri.ket', 'baru');
+		$this->db->where('tb_santri.lembaga !=', 'RA');
+		$this->db->where('tb_santri.lembaga !=', 'MI');
 		$this->db->order_by('nama', 'ASC');
 		$result = $this->db->get()->result(); // Tampilkan semua data kota berdasarkan id provinsi
 
@@ -49,6 +53,8 @@ class BerkasModel extends CI_Model
 		$this->db->from('tb_santri');
 		$this->db->where('NOT EXISTS (SELECT * FROM atribut WHERE atribut.nis=tb_santri.nis)', '', false);
 		$this->db->where('tb_santri.ket', 'baru');
+		$this->db->where('tb_santri.lembaga !=', 'RA');
+		$this->db->where('tb_santri.lembaga !=', 'MI');
 		return $this->db->get();
 	}
 
