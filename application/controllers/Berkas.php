@@ -114,7 +114,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          = FCPATH . '../psb/assets/berkas/';
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/kk/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'KK-' . $nis . random(4);
 		$config['overwrite']            = true;
@@ -150,7 +150,7 @@ class Berkas extends CI_Controller
 	public function downKK($nis)
 	{
 		$file = $this->model->getFile($nis)->row();
-		force_download('../psb/assets/berkas/' . $file->kk, NULL);
+		force_download('../psb/assets/berkas/kk/' . $file->kk, NULL);
 		redirect('berkas/detail/' . $nis);
 	}
 
@@ -159,7 +159,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          = FCPATH . '../psb/assets/berkas/';
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/akta/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'akta-' . $nis . random(4);
 		$config['overwrite']            = true;
@@ -171,7 +171,7 @@ class Berkas extends CI_Controller
 			$data['error'] = $this->upload->display_errors();
 		} else {
 			if ($lama != '') {
-				unlink('../psb/assets/berkas/' . $lama);
+				unlink('../psb/assets/berkas/akta/' . $lama);
 			}
 			$uploaded_data = $this->upload->data();
 			$new_data = [
@@ -195,7 +195,7 @@ class Berkas extends CI_Controller
 	public function downakta($nis)
 	{
 		$file = $this->model->getFile($nis)->row();
-		force_download('../psb/assets/berkas/' . $file->akta, NULL);
+		force_download('../psb/assets/berkas/akta/' . $file->akta, NULL);
 		redirect('berkas/detail/' . $nis);
 	}
 
@@ -204,7 +204,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          = FCPATH . '../psb/assets/berkas/';
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/kip/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'kip-' . $nis . random(4);
 		$config['overwrite']            = true;
@@ -216,7 +216,7 @@ class Berkas extends CI_Controller
 			$data['error'] = $this->upload->display_errors();
 		} else {
 			if ($lama != '') {
-				unlink('../psb/assets/berkas/' . $lama);
+				unlink('../psb/assets/berkas/kip/' . $lama);
 			}
 			$uploaded_data = $this->upload->data();
 			$new_data = [
@@ -240,7 +240,7 @@ class Berkas extends CI_Controller
 	public function downkip($nis)
 	{
 		$file = $this->model->getFile($nis)->row();
-		force_download('../psb/assets/berkas/' . $file->kip, NULL);
+		force_download('../psb/assets/berkas/kip/' . $file->kip, NULL);
 		redirect('berkas/detail/' . $nis);
 	}
 
@@ -249,7 +249,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          = FCPATH . '../psb/assets/berkas/';
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/ktp_ayah/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'ktp_ayah-' . $nis . random(4);
 		$config['overwrite']            = true;
@@ -261,7 +261,7 @@ class Berkas extends CI_Controller
 			$data['error'] = $this->upload->display_errors();
 		} else {
 			if ($lama != '') {
-				unlink('../psb/assets/berkas/' . $lama);
+				unlink('../psb/assets/berkas/ktp_ayah/' . $lama);
 			}
 			$uploaded_data = $this->upload->data();
 			$new_data = [
@@ -285,7 +285,7 @@ class Berkas extends CI_Controller
 	public function downktp_ayah($nis)
 	{
 		$file = $this->model->getFile($nis)->row();
-		force_download('../psb/assets/berkas/' . $file->ktp_ayah, NULL);
+		force_download('../psb/assets/berkas/ktp_ayah/' . $file->ktp_ayah, NULL);
 		redirect('berkas/detail/' . $nis);
 	}
 
@@ -294,7 +294,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          = FCPATH . '../psb/assets/berkas/';
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/ktp_ibu/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'ktp_ibu-' . $nis . random(4);
 		$config['overwrite']            = true;
@@ -305,8 +305,8 @@ class Berkas extends CI_Controller
 		if (!$this->upload->do_upload('berkas')) {
 			$data['error'] = $this->upload->display_errors();
 		} else {
-			if (file_exists('../psb/assets/berkas/' . $lama)) {
-				unlink('../psb/assets/berkas/' . $lama);
+			if (file_exists('../psb/assets/berkas/ktp_ibu' . $lama)) {
+				unlink('../psb/assets/berkas/ktp_ibu/' . $lama);
 			}
 			$uploaded_data = $this->upload->data();
 			$new_data = [
@@ -330,7 +330,7 @@ class Berkas extends CI_Controller
 	public function downktp_ibu($nis)
 	{
 		$file = $this->model->getFile($nis)->row();
-		force_download('../psb/assets/berkas/' . $file->ktp_ibu, NULL);
+		force_download('../psb/assets/berkas/ktp_ibu/' . $file->ktp_ibu, NULL);
 		redirect('berkas/detail/' . $nis);
 	}
 
@@ -339,7 +339,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          = FCPATH . '../psb/assets/berkas/';
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/skl/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'skl-' . $nis . random(4);
 		$config['overwrite']            = true;
@@ -350,8 +350,8 @@ class Berkas extends CI_Controller
 		if (!$this->upload->do_upload('berkas')) {
 			$data['error'] = $this->upload->display_errors();
 		} else {
-			if (file_exists('../psb/assets/berkas/' . $lama)) {
-				unlink('../psb/assets/berkas/' . $lama);
+			if (file_exists('../psb/assets/berkas/skl/' . $lama)) {
+				unlink('../psb/assets/berkas/skl/' . $lama);
 			}
 			$uploaded_data = $this->upload->data();
 			$new_data = [
@@ -375,7 +375,7 @@ class Berkas extends CI_Controller
 	public function downskl($nis)
 	{
 		$file = $this->model->getFile($nis)->row();
-		force_download('../psb/assets/berkas/' . $file->skl, NULL);
+		force_download('../psb/assets/berkas/skl/' . $file->skl, NULL);
 		redirect('berkas/detail/' . $nis);
 	}
 
@@ -384,7 +384,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          = FCPATH . '../psb/assets/berkas/';
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/ijazah/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'ijazah-' . $nis . random(4);
 		$config['overwrite']            = true;
@@ -433,6 +433,58 @@ class Berkas extends CI_Controller
 		} else {
 			$this->session->set_flashdata('error', 'Tambah tak berhasil');
 			redirect('berkas/lama');
+		}
+	}
+
+	public function foto()
+	{
+		$data['data'] = $this->db->query("SELECT tb_santri.nis, nama, tb_santri.ket, lembaga, diri FROM tb_santri LEFT JOIN foto_file ON tb_santri.nis=foto_file.nis WHERE lembaga != 'RA' AND lembaga != 'MI' ")->result();
+
+		$this->load->view('head', $data);
+		$this->load->view('foto', $data);
+		$this->load->view('foot');
+	}
+
+	public function detailFoto($nis)
+	{
+		$data['data'] = $this->db->query("SELECT foto_file.*, tb_santri.nama, tb_santri.bapak, tb_santri.ibu FROM foto_file JOIN tb_santri ON foto_file.nis=tb_santri.nis WHERE foto_file.nis = $nis ")->row();
+		$data['foto'] = $this->db->query("SELECT * FROM foto_file  WHERE nis = $nis ")->row();
+
+		$this->load->view('head', $data);
+		$this->load->view('fotoDtl', $data);
+		$this->load->view('foot');
+	}
+
+	public function editImg()
+	{
+		$nis = $this->input->post('nis', true);
+		$lama = $this->input->post('file_lama', true);
+
+		$config['upload_path']          = FCPATH . '../psb/assets/berkas/diri/';
+		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
+		$config['file_name']            = 'diri-' . $nis . random(4);
+		$config['overwrite']            = true;
+		$config['max_size']             = 0;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('berkas')) {
+			$data['error'] = $this->upload->display_errors();
+		} else {
+			if (file_exists('../psb/assets/berkas/foto/' . $lama)) {
+				unlink('../psb/assets/berkas/foto/' . $lama);
+			}
+			$uploaded_data = $this->upload->data();
+			$new_data = [
+				'ijazah' => $uploaded_data['file_name']
+			];
+
+			$this->db->update('berkas_file', $new_data);
+			$this->db->where('nis', $nis);
+
+			if ($this->db->affected_rows() > 0) {
+				redirect('berkas/detailFoto/' . $nis);
+			}
 		}
 	}
 }

@@ -181,7 +181,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $data->akta ?>" width="100%" height="500" style="border:none;"></iframe>
+                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/akta/' . $data->akta ?>" width="100%" height="500" style="border:none;"></iframe>
             </div>
             <div class="modal-footer">
             </div>
@@ -221,7 +221,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $data->kk ?>" width="100%" height="500" style="border:none;"></iframe>
+                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/kk/' . $data->kk ?>" width="100%" height="500" style="border:none;"></iframe>
             </div>
             <div class="modal-footer">
             </div>
@@ -261,7 +261,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $data->ktp_ayah ?>" width="100%" height="500" style="border:none;"></iframe>
+                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/ktp_ayah/' . $data->ktp_ayah ?>" width="100%" height="500" style="border:none;"></iframe>
             </div>
             <div class="modal-footer">
             </div>
@@ -301,7 +301,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $data->ktp_ibu ?>" width="100%" height="500" style="border:none;"></iframe>
+                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/ktp_ibu/' . $data->ktp_ibu ?>" width="100%" height="500" style="border:none;"></iframe>
             </div>
             <div class="modal-footer">
             </div>
@@ -341,7 +341,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $data->skl ?>" width="100%" height="500" style="border:none;"></iframe>
+                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/skl/' . $data->skl ?>" width="100%" height="500" style="border:none;"></iframe>
             </div>
             <div class="modal-footer">
             </div>
@@ -381,7 +381,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $data->ijazah ?>" width="100%" height="500" style="border:none;"></iframe>
+                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/ijazah/' . $data->ijazah ?>" width="100%" height="500" style="border:none;"></iframe>
             </div>
             <div class="modal-footer">
             </div>
@@ -421,7 +421,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/' . $data->kip ?>" width="100%" height="500" style="border:none;"></iframe>
+                <iframe src="<?= 'https://psb.ppdwk.com/assets/berkas/kip/' . $data->kip ?>" width="100%" height="500" style="border:none;"></iframe>
             </div>
             <div class="modal-footer">
             </div>
