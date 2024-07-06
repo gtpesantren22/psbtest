@@ -471,9 +471,9 @@ class Berkas extends CI_Controller
 		if (!$this->upload->do_upload('berkas')) {
 			$data['error'] = $this->upload->display_errors();
 		} else {
-			if (file_exists('https://psb.pdwk.com/assets/berkas/foto/' . $lama)) {
-				unlink('https://psb.pdwk.com/assets/berkas/foto/' . $lama);
-			}
+			// if (file_exists('https://psb.pdwk.com/assets/berkas/foto/' . $lama)) {
+			// 	unlink('https://psb.pdwk.com/assets/berkas/foto/' . $lama);
+			// }
 			$uploaded_data = $this->upload->data();
 			$new_data = [
 				'diri' => $uploaded_data['file_name']
