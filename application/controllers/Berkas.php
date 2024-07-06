@@ -476,10 +476,10 @@ class Berkas extends CI_Controller
 			}
 			$uploaded_data = $this->upload->data();
 			$new_data = [
-				'ijazah' => $uploaded_data['file_name']
+				'diri' => $uploaded_data['file_name']
 			];
 
-			$this->db->update('berkas_file', $new_data);
+			$this->db->update('foto_file', $new_data);
 			$this->db->where('nis', $nis);
 
 			if ($this->db->affected_rows() > 0) {
