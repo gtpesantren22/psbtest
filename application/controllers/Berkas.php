@@ -460,7 +460,7 @@ class Berkas extends CI_Controller
 		$nis = $this->input->post('nis', true);
 		$lama = $this->input->post('file_lama', true);
 
-		$config['upload_path']          =  'https://psb.pdwk.com/assets/berkas/foto/';
+		$config['upload_path']          =  FCPATH . '../psb/assets/berkas/foto/';
 		$config['allowed_types']        = 'jpg|jpeg|png|pdf';
 		$config['file_name']            = 'diri-' . $nis . random(4);
 		$config['overwrite']            = true;
