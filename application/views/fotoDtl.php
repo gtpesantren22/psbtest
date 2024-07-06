@@ -23,7 +23,7 @@
                     <div class="col-sm-6 col-lg-3">
                         <div class="card card-sm">
                             <div class="card-body">
-                                <?= form_open_multipart('image/editImg') ?>
+                                <?= form_open_multipart('berkas/editImg') ?>
                                 <input type="hidden" name="nis" value="<?= $data->nis ?>">
                                 <input type="hidden" name="file_lama" value="<?= $data->diri ?>">
                                 <label for="" class="form-label required">Upload Ulang Foto (PNG/JPG)</label>
