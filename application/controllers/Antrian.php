@@ -104,22 +104,22 @@ class Antrian extends CI_Controller
 
 		$this->model->simpan('antrian', $data);
 		if ($this->db->affected_rows() > 0) {
-			// $this->session->set_flashdata('ok', 'Data sudah diperbarui');
-			// $this->cetak($cekJumlah->nomor + 1);
-			echo json_encode(['success' => 'Data successfully saved.', 'nomor' => $nomor]);
-			// redirect('antrian');
+			$this->session->set_flashdata('ok', 'Data sudah diperbarui');
+			$this->cetak($cekJumlah->nomor + 1);
+			// echo json_encode(['success' => 'Data successfully saved.', 'nomor' => $nomor]);
+			redirect('antrian');
 		} else {
 			$this->session->set_flashdata('error', 'Edit Error');
-			echo json_encode(['error' => 'Failed to save data.']);
-			// redirect('antrian');
+			// echo json_encode(['error' => 'Failed to save data.']);
+			redirect('antrian');
 		}
 	}
 
-	public function print_page($nomor)
-	{
-		$data['nomor'] = $nomor;
-		$this->load->view('cetakAntrian', $data);
-	}
+	// public function print_page($nomor)
+	// {
+	// 	$data['nomor'] = $nomor;
+	// 	$this->load->view('cetakAntrian', $data);
+	// }
 
 	public function ambil()
 	{

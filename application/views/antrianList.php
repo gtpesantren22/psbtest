@@ -5,7 +5,7 @@
             <div class="card-body">
                 <small style="font-weight: 700; font-size: 100px"><?= $akhir ? $akhir->nomor : 0 ?></small><br>
                 <?php if ($akhir && $akhir->status === 'proses') { ?>
-                    <input type="hidden" id="text" value="<?= 'nomor antrian, ' . $akhir->nomor . ', silahkan menuju meja ' . $akhir->meja ?>">
+                    <input type="hidden" id="text" value="<?= 'nomor antrian, ' . $akhir->nomor . ', silahkan menuju operator ' . $akhir->meja ?>">
                     <button id="playButton" onclick="speak()" class="btn btn-primary"><i class="fa fa-bullhorn"></i> Panggil</button> |
                     <a href="<?= base_url('antrian/selesai/' . $akhir->id) ?>" onclick="return confirm('Yakin akan menyelesaikan ?')" class="btn btn-primary"><i class="fa fa-check"></i> Selesai</a>
 
