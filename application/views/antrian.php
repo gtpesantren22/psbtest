@@ -4,8 +4,8 @@
             <h5 class="card-header">Buat Antrian</h5>
             <div class="card-body">
 
-                <!-- <form action="<?= base_url('antrian/tambah') ?>" method="post" class="mb-1"> -->
-                <form id="dataForm" class="mb-1">
+                <form action="<?= base_url('antrian/tambah') ?>" method="post" class="mb-1">
+                    <!-- <form id="dataForm" class="mb-1"> -->
                     <div class="row">
                         <div class="col-md-9">
                             <div class="form-group mb-2">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary btn-xl" type="sub"><i class="fa fa-print"></i><br>Tambahkan dan Cetak Antrian</button>
+                            <button class="btn btn-primary btn-xl" type="submit"><i class="fa fa-print"></i><br>Tambahkan dan Cetak Antrian</button>
                         </div>
                     </div>
                 </form>
