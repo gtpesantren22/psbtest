@@ -479,8 +479,8 @@ class Berkas extends CI_Controller
 				'diri' => $uploaded_data['file_name']
 			];
 
-			$this->db->update('foto_file', $new_data);
 			$this->db->where('nis', $nis);
+			$this->db->update('foto_file', $new_data);
 
 			if ($this->db->affected_rows() > 0) {
 				redirect('berkas/detailFoto/' . $nis);

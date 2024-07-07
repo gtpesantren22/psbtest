@@ -4,7 +4,8 @@
             <h5 class="card-header">Buat Antrian</h5>
             <div class="card-body">
 
-                <form action="<?= base_url('antrian/tambah') ?>" method="post" class="mb-1">
+                <!-- <form action="<?= base_url('antrian/tambah') ?>" method="post" class="mb-1"> -->
+                <form id="dataForm" class="mb-1">
                     <div class="row">
                         <div class="col-md-9">
                             <div class="form-group mb-2">
@@ -23,12 +24,12 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label for="">Pilih Meja</label>
-                                <div class="form-check">
+                                <!-- <div class="form-check">
                                     <input class="form-check-input" type="radio" name="meja" required value="1" id="flexRadioDefault1">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Meja 1
                                     </label>
-                                </div>
+                                </div> -->
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="meja" required value="umum" id="flexRadioDefault2">
                                     <label class="form-check-label" for="flexRadioDefault2">
@@ -38,7 +39,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary btn-xl"><i class="fa fa-print"></i><br>Tambahkan dan Cetak Antrian</button>
+                            <button class="btn btn-primary btn-xl" type="sub"><i class="fa fa-print"></i><br>Tambahkan dan Cetak Antrian</button>
                         </div>
                     </div>
                 </form>
@@ -46,6 +47,9 @@
                 <div class="text-center">
                     <b class="text-bold fs-1"><?= $akhir->nomor ?></b><br>
                     <small>Antrian terakhir hari ini <b><?= date('d M Y') ?></b></small>
+                </div>
+                <div class="text-center">
+                    <div id="response"></div>
                 </div>
             </div>
         </div>
@@ -236,7 +240,7 @@
                 url: '<?= base_url('antrian/meja/1'); ?>',
                 dataType: 'json',
                 success: function(data) {
-                    
+
                     $('#akhir1').text(data.akhir);
                     $('#proses1').text(data.proses);
                     $('#selesai1').text(data.selesai);
@@ -255,7 +259,7 @@
                 url: '<?= base_url('antrian/meja/2'); ?>',
                 dataType: 'json',
                 success: function(data) {
-                    
+
                     $('#akhir2').text(data.akhir);
                     $('#proses2').text(data.proses);
                     $('#selesai2').text(data.selesai);
@@ -273,7 +277,7 @@
                 url: '<?= base_url('antrian/meja/3'); ?>',
                 dataType: 'json',
                 success: function(data) {
-                    
+
                     $('#akhir3').text(data.akhir);
                     $('#proses3').text(data.proses);
                     $('#selesai3').text(data.selesai);
@@ -291,7 +295,7 @@
                 url: '<?= base_url('antrian/meja/4'); ?>',
                 dataType: 'json',
                 success: function(data) {
-                    
+
                     $('#akhir4').text(data.akhir);
                     $('#proses4').text(data.proses);
                     $('#selesai4').text(data.selesai);
@@ -309,7 +313,7 @@
                 url: '<?= base_url('antrian/meja/5'); ?>',
                 dataType: 'json',
                 success: function(data) {
-                    
+
                     $('#akhir5').text(data.akhir);
                     $('#proses5').text(data.proses);
                     $('#selesai5').text(data.selesai);
@@ -320,5 +324,29 @@
                 }
             })
         };
+
+
+        $('#dataForm').on('submit', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '<?= base_url("antrian/tambah") ?>',
+                type: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.error) {
+                        $('#response').html('<div style="color: red;">' + response.error + '</div>');
+                        console.log('error tambah')
+                    } else {
+                        $('#response').html('<div style="color: green;">' + response.success + '</div>');
+                        $('#dataForm')[0].reset();
+
+                        window.open('<?= base_url("antrian/print_page") ?>/' + response.nomor, '_blank');
+                        window.location.reload()
+                    }
+                }
+            });
+        });
     });
 </script>

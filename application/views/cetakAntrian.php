@@ -19,7 +19,7 @@
         </li>
         <li class="list-group-item text-center">
             <h5>NO. ANTRIAN</h5>
-            <h1 style="font-size: 90px;"><?= $no ?></h1>
+            <h1 style="font-size: 90px;"><?= $nomor ?></h1>
             <h6><?= date('d M Y') . ' ' . date('H:i') ?></h6>
         </li>
         <li class="list-group-item text-center">

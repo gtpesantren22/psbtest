@@ -81,6 +81,7 @@ class Antrian extends CI_Controller
 		$meja = $this->input->post('meja', true);
 		$cekJumlah = $this->db->query("SELECT MAX(nomor) as nomor FROM antrian WHERE tanggal = '$hariini' ")->row();
 		$cekmea = $this->db->query("SELECT id_user FROM user WHERE meja = 1 ")->row();
+		$nomor = $cekJumlah->nomor + 1;
 		if ($meja === 'umum') {
 			$meja = 0;
 			$status = 'belum';
@@ -92,7 +93,7 @@ class Antrian extends CI_Controller
 		}
 
 		$data = [
-			'nomor' => $cekJumlah->nomor + 1,
+			'nomor' => $nomor,
 			'meja' => $meja,
 			'jam' => date('H:i'),
 			'tanggal' => $hariini,
@@ -103,13 +104,21 @@ class Antrian extends CI_Controller
 
 		$this->model->simpan('antrian', $data);
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('ok', 'Data sudah diperbarui');
-			$this->cetak($cekJumlah->nomor + 1);
-			redirect('antrian');
+			// $this->session->set_flashdata('ok', 'Data sudah diperbarui');
+			// $this->cetak($cekJumlah->nomor + 1);
+			echo json_encode(['success' => 'Data successfully saved.', 'nomor' => $nomor]);
+			// redirect('antrian');
 		} else {
 			$this->session->set_flashdata('error', 'Edit Error');
-			redirect('antrian');
+			echo json_encode(['error' => 'Failed to save data.']);
+			// redirect('antrian');
 		}
+	}
+
+	public function print_page($nomor)
+	{
+		$data['nomor'] = $nomor;
+		$this->load->view('cetakAntrian', $data);
 	}
 
 	public function ambil()
