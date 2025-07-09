@@ -479,7 +479,7 @@ class Santri extends CI_Controller
 		$data = [
 			'nis' => $nis,
 			'jkl' => $santri->jkl,
-			'tgl' => date('Y-m-d H:i'),
+			'tgl' => date('Y-m-d H:i:s'),
 			'nominal' => $nominal,
 			't_kos' => $tm,
 			'kasir' => $this->input->post('kasir', true)

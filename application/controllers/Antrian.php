@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 
 class Antrian extends CI_Controller
 {
@@ -162,7 +163,7 @@ class Antrian extends CI_Controller
 		try {
 			$nomor_antrian = $no;
 			// Nama printer seperti yang terlihat di Windows
-			$connector = new WindowsPrintConnector("POS58 Printer");
+			$connector = new NetworkPrintConnector("192.168.0.100", 9100);
 
 			$printer = new Printer($connector);
 
